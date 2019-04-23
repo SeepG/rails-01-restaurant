@@ -33,6 +33,8 @@ Restaurant.destroy_all
     review = Review.new(params)
     review.save
   end
-end
-
+  puts 'Creating an admin user'
+  admin_user = User.new({ :email => 'admin@admin.com.au', :password => 'password321', :password_confirmation => 'password321', :admin => 'true'})
+  admin_user.save
+  
 puts 'Seeding Over'

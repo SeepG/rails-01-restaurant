@@ -1,8 +1,14 @@
 # frozen_string_literal: true
 
 class RestaurantsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @restaurants = Restaurant.all
+  end
+
+  def new
+    @restaurant = Restaurant.new
   end
 
   def create
@@ -13,10 +19,6 @@ class RestaurantsController < ApplicationController
     else
       render 'new'
       end
-  end
-
-  def new
-    @restaurant = Restaurant.new
   end
 
   def show
